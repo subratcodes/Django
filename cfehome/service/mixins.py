@@ -22,7 +22,7 @@ class ProductList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.Generic
 
 
 
-class SingleProduct(generics.GenericAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin):
+class SingleProduct(generics.GenericAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
 
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
@@ -33,3 +33,6 @@ class SingleProduct(generics.GenericAPIView,mixins.RetrieveModelMixin,mixins.Upd
 
     def put(self,request,pk):
         return self.update(request,pk)
+    
+    def delete(self,request,pk):
+        return self.destroy(request,pk)
