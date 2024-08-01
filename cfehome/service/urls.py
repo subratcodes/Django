@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 from .viewV2 import ProductView
 from .mixins import ProductList,SingleProduct
+from .generics import ProductList
 
 urlpatterns=[
      path('products/all',ProductList.as_view()),
